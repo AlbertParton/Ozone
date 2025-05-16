@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <style>
+      .btnleft {
+        position: absolute;
+        left:3%;
+        border: 2px solid white;
+        background: transparent;
+        text-transform: uppercase;
+        color: white;
+        padding: 15px 50px;
+        outline: none;
+        overflow: hidden;
+      }
+      .btnleft:after {
+        content: '';
+          display: block;
+          position: absolute;
+          top: -36px;
+          left: -100px;
+          background: white;
+          width: 50px;
+          height: 125px;
+          opacity: 20%;
+          transform: rotate(-45deg);
+      }
+      .btnleft:hover:after {
+        left: 120%;
+        transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
+        -webkit-transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
+      }
+
+      .btnright {
+        position: absolute;
+        right:4%;
+        border: 2px solid white;
+        background: transparent;
+        text-transform: uppercase;
+        color: white;
+        padding: 15px 50px;
+        outline: none;
+        overflow: hidden;
+      }
+      .btnright:after {
+        content: '';
+          display: block;
+          position: absolute;
+          top: -36px;
+          left: -100px;
+          background: white;
+          width: 50px;
+          height: 125px;
+          opacity: 20%;
+          transform: rotate(-45deg);
+      }
+      .btnright:hover:after {
+        left: 120%;
+        transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
+        -webkit-transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
+      }
+
+      .btn_zoom {
+        position: absolute;
+        right:4%;
+        top:6%;
+        border: 2px solid white;
+        background: transparent;
+        text-transform: uppercase;
+        color: white;
+        padding: 2px 9px;
+        outline: none;
+        overflow: hidden;
+      }
+      .btn_zoom:after {
+        content: '';
+          display: block;
+          position: absolute;
+          top: -36px;
+          left: -100px;
+          background: white;
+          width: 50px;
+          height: 125px;
+          opacity: 20%;
+          transform: rotate(-45deg);
+      }
+      .btn_zoom:hover:after {
+        left: 120%;
+        transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
+        -webkit-transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
+      }
+
+      .slt_block {
+        position: absolute;
+        right:56%;
+        bottom: 1%;
+        border: 2px solid white;
+        background: transparent;
+        text-transform: uppercase;
+        color: white;
+        padding: 1.5px 5px;
+        outline: none;
+        overflow: hidden;
+        /* background-color:rgb(15,15,90); */
+        background-color:transparent;
+      }
+      .slt_option {
+        background-color:rgb(15,15,90);
+        /* background-color:rgb(116, 116, 180); */
+      }
+      .slt_month {
+        position: relative;
+        margin-top: -50%;
+        border: 2px solid white;
+        background: transparent;
+        text-transform: uppercase;
+        color: white;
+        padding: 1.5px 5px;
+        outline: none;
+        overflow: hidden;
+        /* background-color:rgb(15,15,90); */
+        background-color:transparent;
+      }
+      .slt_block2 {
+        position: relative;
+        right:-100%;
+        top: 10%;
+        border: 2px solid white;
+        background: transparent;
+        text-transform: uppercase;
+        color: white;
+        padding: 2.5px 10px;
+        outline: none;
+        overflow: hidden;
+        /* background-color:rgb(15,15,90); */
+        background-color:transparent;
+      }
+      .slt_model {
+        position: absolute;
+        right:6%;
+        bottom: 1%;
+        border: 2px solid white;
+        background: transparent;
+        text-transform: uppercase;
+        color: white;
+        padding: 1.5px 5px;
+        outline: none;
+        overflow: hidden;
+        /* background-color:rgb(15,15,90); */
+        background-color:transparent;
+      }
+
+
+
+      .niceButton2{
+              position: relative;
+              margin: 20px;
+              /* background-color: rgb(32, 93, 224); */
+              background: url(./images/head_bg.png) no-repeat #2533cd;
+              background-size: 100% 100%;
+              border: none;
+              font-size: 20px;
+              color: #ffffff;
+              padding: 20px;
+              width: 200px;
+              text-align: center;
+              transition-duration: 0.6s;
+              text-decoration: none;
+              overflow: hidden;
+              cursor: pointer;
+          }
+      .niceButton2::after{
+              content: '';
+              background:#53a4f0;
+              display: block;
+              position: absolute;
+              padding-top: 300%;
+              padding-left: 350%;
+              margin-left: -20px !important;
+              margin-top: -120%;
+              opacity: 0;
+              transition:all 0.8s;
+          }
+      .niceButton2:active::after{
+              padding: 0;
+              margin: 0;
+              opacity: 1;
+              transition: 0s;
+          }
+    
+    </style>
+  </head>
+
+
+  <!-- 顶部导航栏 -->
+  <headerNav class="s-header" style="position: fixed">
+    <nav class="header-nav-wrap">
+        <ul class="header-nav">
+            <!-- <li id="nav1" class="current"><a id="nav_1" class="smoothscroll"  href="#top" title="home">HOME</a></li> -->
+            <li id="nav2"><a id="nav_2" class="smoothscroll"  href="#model" title="map">Model</a></li>
+            <li id="nav3"><a id="nav_3" class="smoothscroll"  href="#map" title="works">General</a></li>
+            <li id="nav4"><a id="nav_4" class="smoothscroll"  href="#analyse" title="blog">Analyse</a></li>
+            <li id="nav5"><a id="nav_5" class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
+        </ul>
+        <script>
+          // 点击高亮效果
+          var nav1 = document.getElementById('nav1');
+          var nav2 = document.getElementById('nav2');
+          var nav3 = document.getElementById('nav3');
+          var nav4 = document.getElementById('nav4');
+          var nav5 = document.getElementById('nav5');
+          var nav_1 = document.getElementById('nav_1');
+          var nav_2 = document.getElementById('nav_2');
+          var nav_3 = document.getElementById('nav_3');
+          var nav_4 = document.getElementById('nav_4');
+          var nav_5 = document.getElementById('nav_5');
+          nav_1.addEventListener('click',function(){
+            nav1.className='',nav2.className='',nav3.className='',nav4.className='',nav5.className='';
+            nav1.className="current";
+          },false);
+          nav_2.addEventListener('click',function(){
+            nav1.className='',nav2.className='',nav3.className='',nav4.className='',nav5.className='';
+            nav2.className="current";
+          },false);
+          nav_3.addEventListener('click',function(){
+            nav1.className='',nav2.className='',nav3.className='',nav4.className='',nav5.className='';
+            nav3.className="current";
+          },false);
+          nav_4.addEventListener('click',function(){
+            nav1.className='',nav2.className='',nav3.className='',nav4.className='',nav5.className='';
+            nav4.className="current";
+          },false);
+          nav_5.addEventListener('click',function(){
+            nav1.className='',nav2.className='',nav3.className='',nav4.className='',nav5.className='';
+            nav5.className="current";
+          },false);
+        </script>
+      </nav>
+    <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
+  </headerNav> <!-- end s-header -->
+
+
+
+  <!-- 网页封面 -->
+  <!-- <pagecover id="top" class="title">
+    <div class="column">
+    </div>
+    <h1 class="column">青岛市五街区臭氧浓度可视分析系统</h1>
+    <div class="column">
+  
+    </div>
+  </pagecover> -->
+  
+
+
+  <!-- 主体 -->
+  <body>
+    <!-- block 1 -->
+    <!-- ---------------------------------------------------- -->
+    <!-- ---------------------------------------------------- -->
+    <!-- ---------------------------------------------------- -->
+    <header id="model">
+      <h1>预测结果</h1>
+    </header>
+
+    <section id = "mainbox" class="mainbox">
+      <div id = "col1"; class="column"; width:100%>
+        <div class="panel pred1"; width:100%;>
+          <h2>特征重要性排序</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel pred2"; width:100%;>
+          <h2>STL分解结果</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel pred3"; width:100%;>
+          <h2>R2/RMSE</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+
+      <div id="col2"; class="column">
+        <div class="no">
+          <div class="no-hd">
+            <ul class="ul">
+              <li class="li1">八大关街道</li>
+              <li class="li2">LightGBM</li>
+            </ul>
+          </div>
+          <div class="no-bd">
+            <select name="select1" class="slt_block">
+              <option value="BaDaGuan" class="slt_option">八大关街道</option>
+              <option value="BeiZhai" class="slt_option">北宅街道</option>
+              <option value="DengZhouLu" class="slt_option">登州路街道</option>
+              <option value="ShangMa" class="slt_option">上马街道</option>
+              <option value="XingChengLu" class="slt_option">兴城路街道</option>
+              <!-- <option value="ZhuHai">珠海街道</option> -->
+            </select>
+            <select name="select2" class="slt_model">
+              <option value="LGBM" class="slt_option">LGBM</option>
+              <option value="Informer" class="slt_option">Informer</option>
+              <option value="SVM" class="slt_option">SVM</option>
+              <option value="Linear" class="slt_option">Linear</option>
+              <!-- <option value="ZhuHai">珠海街道</option> -->
+            </select>
+            <ul>
+              <li>当前街道</li>
+              <li>当前模型</li>
+            </ul>
+          </div>
+          <script>
+            var block_title = document.querySelector(".no-hd .ul .li1");
+            // console.log(block_title);
+            var block_selector = document.querySelector(".no-bd .slt_block");
+            // console.log(block_selector);
+
+            block_selector.addEventListener('change', function() {
+              var opt = this.value;
+              console.log('*Title* Selected option:', opt);
+              if (opt == "BaDaGuan") {
+                block_title.innerHTML = "八大关街道";
+              }
+              else if (opt == "BeiZhai") {
+                block_title.innerHTML = "北宅街道";
+              }
+              else if (opt == "DengZhouLu") {
+                block_title.innerHTML = "登州路街道";
+              }
+              else if (opt == "ShangMa") {
+                block_title.innerHTML = "上马街道";
+              }
+              else if (opt == "XingChengLu") {
+                block_title.innerHTML = "兴城路街道";
+              }
+              else if (opt == "ZhuHai") {
+                block_title.innerHTML = "珠海街道";
+              }
+            });
+          </script>
+        </div>
+        <div class="panel2 mainline" id="predict_chart">
+          <h2 class = "mainline_chart_title">臭氧浓度预测-真实比较</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+          <div class = "btn_switch">
+            <!-- index:0, 1, ... -->
+            <button class = "btnleft">left</button>
+            <button class = "btnright">right</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- <section class="mainbox_">
+      <div class="column">
+        <div class="panel pred1"; width:100%>
+          <h2>chart1</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel pred2"; width:100%>
+          <h2>chart2</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+      
+      <div class="column">
+        <div class="panel pred3"; width:100%>
+          <h2>chart3</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+    </section> -->
+    
+
+
+
+    <!-- block 2 -->
+    <!-- ---------------------------------------------------- -->
+    <!-- ---------------------------------------------------- -->
+    <!-- ---------------------------------------------------- -->
+    <div id="map" class = "header2">
+      <h1>气象信息总览</h1>
+    </div>
+
+    <section class="mainbox3">
+        <div class="column">
+            <!-- 左侧按钮容器 -->
+            <div id="controls" style="display: flex; flex-direction: column; height: 100%; justify-content: center; align-items: center; gap: 40px;">
+              <button class="css-button-gradient--6" onclick="updateParameter('O3')">臭   氧</button>
+              <button class="css-button-gradient--6" onclick="updateParameter('QIWEN')">气   温</button>
+              <button class="css-button-gradient--6" onclick="updateParameter('FENGSU')">风   速</button>
+              <button class="css-button-gradient--6" onclick="updateParameter('SHIDU')">湿   度</button>
+              <button class="css-button-gradient--6" onclick="updateParameter('QIYA')">气   压</button>
+            </div>
+        </div>
+        <div class="column">
+            <div class="map">
+                <div class="chart" style="background-color: rgba(0, 0, 0, 0.1);"></div>
+                <!-- <div class="map1"></div> -->
+                <!-- <div class="map2"></div> -->
+                <!-- <div class="map3"></div> -->
+            </div>
+        </div>
+        <div class="column" style="background-color: transparent; padding: 20px; width: 25%;">
+          <!-- 下拉选择框 -->
+          <div "no-bd" style="display: flex;position: relative; top: 80px; left: 180px; margin-left: 10px; margin-top: 10px;">
+            <select id="monthSelect" class="slt_block" style="padding: 10px; font-size: 18px; width: 150px;" onchange="updateMonth(this.value)">
+                <option value="2021-1" class="slt_option">2021-1</option>
+                <option value="2021-2" class="slt_option">2021-2</option>
+                <option value="2021-3" class="slt_option">2021-3</option>
+                <option value="2021-4" class="slt_option">2021-4</option>
+                <option value="2021-5" class="slt_option">2021-5</option>
+                <option value="2021-6" class="slt_option">2021-6</option>
+                <option value="2021-7" class="slt_option">2021-7</option>
+                <option value="2021-8" class="slt_option">2021-8</option>
+                <option value="2021-9" class="slt_option">2021-9</option>
+                <option value="2021-10" class="slt_option">2021-10</option>
+                <option value="2021-11" class="slt_option">2021-11</option>
+                <option value="2021-12" class="slt_option">2021-12</option>
+                <option value="2022-1" class="slt_option">2022-1</option>
+                <option value="2022-2" class="slt_option">2022-2</option>
+                <option value="2022-3" class="slt_option">2022-3</option>
+                <option value="2022-4" class="slt_option">2022-4</option>
+                <option value="2022-5" class="slt_option">2022-5</option>
+                <option value="2022-6" class="slt_option">2022-6</option>
+                <option value="2022-7" class="slt_option">2022-7</option>
+                <option value="2022-8" class="slt_option">2022-8</option>
+                <option value="2022-9" class="slt_option">2022-9</option>
+                <option value="2022-10" class="slt_option">2022-10</option>
+                <option value="2022-11" class="slt_option">2022-11</option>
+                <option value="2022-12" class="slt_option">2022-12</option>
+              </select>
+              <!-- Switch Button -->
+              <!-- Switch Button -->
+              <label style="margin-top: 20px; color: #fff; font-size: 18px; display: flex; align-items: center;">
+                <input type="checkbox" id="toggleChart" onchange="toggleChartView(this.checked)" style="display: none;"/>
+                <span style="margin-top: 70px;width: 50px; height: 25px; background-color: #ccc; border-radius: 25px; position: relative; cursor: pointer; transition: background-color 0.3s;">
+                  <span style="content: ''; width: 21px; height: 21px; background-color: #fff; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: transform 0.3s;"></span>
+                </span>
+                <span style="margin-top: 70px;margin-left: -110px;">Switch</span>
+              </label>
+              
+              <script>
+                const checkbox = document.getElementById('toggleChart');
+                checkbox.addEventListener('change', function() {
+                  const slider = checkbox.nextElementSibling.firstElementChild;
+                  if (this.checked) {
+                    slider.style.transform = 'translateX(25px)';
+                    slider.parentElement.style.backgroundColor = '#4caf50'; // Switch on color
+                  } else {
+                    slider.style.transform = 'translateX(0)';
+                    slider.parentElement.style.backgroundColor = '#ccc'; // Switch off color
+                  }
+                });
+              </script>
+          </div>
+        </div>
+    </section>
+
+
+
+    <!-- block 3 -->
+    <!-- ---------------------------------------------------- -->
+    <!-- ---------------------------------------------------- -->
+    <!-- ---------------------------------------------------- -->
+    <div id="analyse" class = "header3">
+      <h1>
+        数据分析</h1>
+    </div>
+    <section class="mainbox2">
+      <div class="column">
+        <!-- <select name="select2" class="slt_block2">
+          <option value="BaDaGuan" class="slt_option">八大关街道</option>
+          <option value="BeiZhai" class="slt_option">北宅街道</option>
+          <option value="DengZhouLu" class="slt_option">登州路街道</option>
+          <option value="ShangMa" class="slt_option">上马街道</option>
+          <option value="XingChengLu" class="slt_option">兴城路街道</option>
+          <option value="ZhuHai" class="slt_option">珠海街道</option>
+        </select> -->
+        <div class="panel bar2"; width:100%>
+          <h2>2021-2022年O3历史数据 
+          </h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel paraline"; width:100%>
+          <h2>4-6月气象五参平行坐标图</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel heatmap"; width:100%>
+          <h2>4-6月气象五参相关矩阵</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+
+      <div class="column">123</div>
+      <div class="column">123</div>
+    </section>
+
+    
+
+    <script src="js/flexible.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/predictionChart.js"></script>
+    <script src="js/china.js"></script>
+    <!-- <script src="js/myMap.js"></script> -->
+    <script src="js/qingdao.js"></script>
+    <!-- <script src="js/qingdao.js"></script> -->
+    <script src="js/events.js"></script>
+  </body>
+</html>

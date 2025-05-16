@@ -1,0 +1,865 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+@font-face {
+  font-family: electronicFont;
+  src: url(../font/DS-DIGIT.TTF);
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  /*  背景图定位 / 背景图尺寸  cover 完全铺满容器  contain 完整显示在容器内 */
+  background: url(../images/sduqd_cloud1_4.jpg) no-repeat #000;
+  background-size: cover;
+  /* background-position: 0rem 14rem; */
+  /* background-color: #c5c5c5; */
+  /* background-color:aliceblue; */
+  /* 行高是字体1.15倍 */
+  line-height: 1.15;
+}
+
+/* 网页封皮 */
+pagecover {
+  position: relative;
+  height: 14rem;
+  /* background-color: #31a5f3; */
+  background: url(../images/sduqd_cloud1.jpg) no-repeat #222;
+  background-size: cover;
+}
+pagecover h1 {
+  font-size: 0.875rem;
+  color: rgba(200, 200, 255, 0.8);
+  text-align: center;
+  line-height: 3rem;
+}
+
+.title {
+  min-width: 1.024px;
+  max-width: 1920px;
+  padding: 0.125rem 0.125rem 0;
+  display: flex;
+}
+.title .column {
+  min-width: 1px;
+}
+.title .column:nth-child(1) {
+  background-color: rgba(200, 200, 255, 0.3);
+  flex: 1;
+  min-width: 1px;
+  margin: 0 0.125rem 0.1875rem;
+  overflow: hidden;
+}
+.title .column:nth-child(2) {
+  flex: 5;
+  min-width: 1px;
+  margin: 0 0.125rem 0.1875rem;
+  overflow: hidden;
+}
+.title .column:nth-child(3) {
+  background-color: rgba(200, 200, 255, 0.3);
+  flex: 1;
+  min-width: 1px;
+  margin: 0 0.125rem 0.1875rem;
+  overflow: hidden;
+}
+
+
+/* 模型预测部分 */
+header {
+  position: relative;
+  height: 1.25rem;
+  background: url(../images/head_bg.png) no-repeat top center;
+  background-size: 100% 100%;
+}
+header h1 {
+  font-size: 0.475rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1rem;
+}
+header .showTime {
+  position: absolute;
+  top: 0;
+  right: 0.375rem;
+  line-height: 0.9375rem;
+  font-size: 0.25rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.mainbox {
+  min-width: 1.024px;
+  max-width: 1920px;
+  height: 12.5rem;
+  padding: 0.125rem 0.125rem 0;
+  display: flex;
+}
+.mainbox .column {
+  flex: 2;
+  min-width: 1px;
+}
+.mainbox .column:nth-child(2) {
+  flex: 5;
+  min-width: 1px;
+  margin: 0 0.125rem 0.1875rem;
+  overflow: hidden;
+}
+.mainbox .column:nth-child(3) {
+  flex: 1;
+  min-width: 1px;
+  margin: 0 0.125rem 0.1875rem;
+  overflow: hidden;
+}
+
+.mainbox_ {
+  min-width: 1.024px;
+  max-width: 1920px;
+  height: 8rem;
+  padding: 0.125rem 0.125rem 0;
+  display: flex;
+}
+.mainbox_ .column {
+  flex: 1;
+  min-width: 1px;
+}
+.mainbox_ .column:nth-child(2) {
+  flex: 1;
+  min-width: 1px;
+  margin: 0 0.125rem 0.1875rem;
+  overflow: hidden;
+}
+
+.panel {
+  position: relative;
+  height: 3.875rem;
+  border: 1px solid rgba(25, 186, 139, 0.17);
+  /* background: rgba(255, 255, 255, 0.04) url(../images/line\(1\).png); */
+  background: rgba(0, 0, 0, 0.08) url(../images/line\(1\).png);
+  /* background: url(../images/sduqd_cloud2.jpg) no-repeat #000; */
+  /* background-size: cover; */
+  padding: 0 0.1875rem 0.5rem;
+  margin-bottom: 0.1875rem;
+}
+.panel::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5;
+}
+.panel::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5;
+}
+.panel .panel-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.panel .panel-footer::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5;
+}
+.panel .panel-footer::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5;
+}
+
+.panel h2 {
+  height: 0.6rem;
+  line-height: 0.6rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.25rem;
+  font-weight: 400;
+}
+.panel h2 a {
+  margin: 0 0.1875rem;
+  color: #fff;
+  text-decoration: underline;
+}
+.panel .chart {
+  height: 3.4rem;
+}
+
+
+.panel2 {
+  position: relative;
+  height: 8.125rem;
+  border: 1px solid rgba(25, 186, 139, 0.17);
+  /* background: rgba(255, 255, 255, 0.04) url(../images/line\(1\).png); */
+  background: rgba(0, 0, 0, 0.08) url(../images/line\(1\).png);
+  /* background: url(../images/bg1.png);
+  background-size: contain; */
+  padding: 0 0.1875rem 0.5rem;
+  margin-bottom: 0.1875rem;
+}
+.panel2::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5;
+}
+.panel2::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5;
+}
+.panel2 .panel-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.panel2 .panel-footer::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5;
+}
+.panel2 .panel-footer::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5;
+}
+.panel2 h2 {
+  height: 0.6rem;
+  line-height: 0.6rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.25rem;
+  font-weight: 400;
+}
+.panel2 h2 a {
+  margin: 0 0.1875rem;
+  color: #fff;
+  text-decoration: underline;
+}
+.panel2 .chart {
+  height: 8.5rem;
+}
+.panel2 .btn {
+  background-color: #000;
+  min-width: 1px;
+  flex: 1;
+}
+.panel2 .btn:nth-child(2) {
+  flex: 1;
+}
+
+
+
+/* 中央大地图模块 */
+.header2 {
+  position: relative;
+  height: 1.25rem;
+  /* background: url(../images/sr2.png) no-repeat top center; */
+  background: url(../images/head_bg.png) no-repeat top center;
+  background-size: 100% 100%;
+}
+.header2 h1 {
+  font-size: 0.475rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1rem;
+}
+.mainbox3 {
+  /* background: url(../images/sduqd_cloud2.jpg) no-repeat #000;
+  background-size: cover; */
+  min-width: 1.024px;
+  max-width: 1920px;
+  padding: 0.125rem 0.125rem 0;
+  display: flex;
+}
+.mainbox3 .column {
+  min-width: 1px;
+  flex: 1;
+}
+.mainbox3 .column:nth-child(1) {
+  /* background-color: rgba(43, 138, 194, 0.5); */
+  min-width: 1px;
+  flex: 1;
+}
+.mainbox3 .column:nth-child(2) {
+  min-width: 1px;
+  flex: 1;
+  /* background-color: #31a5f3; */
+  /* margin: 0 0.125rem 0.1875rem; */
+  /* overflow: hidden; */
+}
+.mainbox3 .column:nth-child(3) {
+  /* background-color:rgba(43, 138, 194, 0.5); */
+  min-width: 1px;
+  flex: 1;
+}
+.css-button-gradient--6 {
+  min-width: 130px;
+  height: 40px;
+  color: #FFF;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background-size: 120% auto;
+  background-image: linear-gradient(315deg, #F0F0FC 0%, #B7B7EB 75%);
+}
+.css-button-gradient--6:hover {
+  background-position: right center;
+}
+.css-button-gradient--6:active {
+  top: 2px;
+}
+.css-button-gradient--1 {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background-size: 120% auto;
+  background-image: linear-gradient(315deg, #4ecdc4 0%, #c797eb 75%);
+  width: 150px;
+}
+.css-button-gradient--1:hover {
+  background-position: right center;
+}
+.css-button-gradient--1:active {
+  top: 2px;
+}
+
+
+/* 底部数据分析 */
+.header3 {
+  position: relative;
+  height: 1.25rem;
+  background: url(../images/head_bg.png) no-repeat top center;
+  background-size: 100% 100%;
+}
+.header3 h1 {
+  font-size: 0.475rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1rem;
+}
+.mainbox2 {
+  /* background: url(../images/sduqd1.jpg) no-repeat #000;
+  background-size: cover; */
+  min-width: 1.024px;
+  max-width: 1920px;
+  padding: 0.125rem 0.125rem 0;
+  display: flex;
+}
+.mainbox2 .column {
+  min-width: 1px;
+  flex: 2;
+}
+.mainbox2 .column:nth-child(1) {
+  min-width: 1px;
+  flex: 1;
+}
+.mainbox2 .column:nth-child(2) {
+  min-width: 1px;
+  flex: 1;
+  /* margin: 0 0.125rem 0.1875rem; */
+  /* overflow: hidden; */
+}
+.mainbox2 .column:nth-child(3) {
+  min-width: 1px;
+  flex: 1;
+}
+
+
+
+/* ADD PANEL 3 */
+
+.panel3 {
+  position: relative;
+  height: 4.875rem;
+  border: 1px solid rgba(25, 186, 139, 0.17);
+  margin-right: 1%;
+  background: rgba(0, 0, 0, 0.05) url(../images/line\(1\).png);
+  /* background: url(../images/bg1.png);
+  background-size: contain; */
+  padding: 0 0.1875rem 0.5rem;
+  margin-bottom: 0.1875rem;
+}
+.panel3::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5;
+}
+.panel3::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5;
+}
+.panel3 .panel-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.panel3 .panel-footer::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5;
+}
+.panel3 .panel-footer::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5;
+}
+
+.panel3 h2 {
+  height: 0.6rem;
+  line-height: 0.6rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.25rem;
+  font-weight: 400;
+}
+.panel3 h2 a {
+  margin: 0 0.1875rem;
+  color: #fff;
+  text-decoration: underline;
+}
+.panel3 .chart {
+  height: 4.4rem;
+}
+
+/* END PANEL 3 */
+
+
+.no {
+  /* background: rgba(101, 132, 226, 0.1); */
+  background: rgba(0, 0, 0, 0.08);
+  padding: 0.1875rem;
+}
+.no .no-hd {
+  position: relative;
+  border: 1px solid rgba(25, 186, 139, 0.17);
+}
+.no .no-hd::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5;
+  top: 0;
+  left: 0;
+}
+.no .no-hd::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5;
+  right: 0;
+  bottom: 0;
+}
+.no .no-hd ul {
+  display: flex;
+}
+.no .no-hd ul li {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size: 0.675rem;
+  color: #31a5f3;
+  padding: 0.05rem 0;
+  /* font-family: electronicFont; */
+  font-weight: bold;
+}
+.no .no-hd ul li:first-child::after {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  right: 0;
+  top: 25%;
+}
+.no .no-bd {
+  position: relative;
+}
+.no .no-bd ul {
+  display: flex;
+}
+.no .no-bd ul li {
+  flex: 1;
+  height: 0.4rem;
+  line-height: 0.4rem;
+  text-align: center;
+  font-size: 0.225rem;
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: 0.125rem;
+}
+
+.map {
+  position: relative;
+  height: 8rem;
+  width: 7.91rem;
+}
+.map .chart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  height: 8rem;
+  width: 100%;
+}
+.map .map1,
+.map .map2,
+.map .map3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6.475rem;
+  height: 6.475rem;
+  background: url(../images/map.png) no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.3;
+}
+.map .map2 {
+  width: 8.0375rem;
+  height: 8.0375rem;
+  background-image: url(../images/lbx.png);
+  opacity: 0.6;
+  animation: rotate 15s linear infinite;
+  z-index: 2;
+}
+.map .map3 {
+  width: 7.075rem;
+  height: 7.075rem;
+  background-image: url(../images/jt.png);
+  animation: rotate1 10s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes rotate1 {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 42px !important;
+  }
+}
+@media screen and (min-width: 1920) {
+  html {
+    font-size: 80px !important;
+  }
+}
+
+
+/* 顶部导航菜单 */
+/* 参考：https://github.com/HarleyRoot/weather-data */
+/* ------------------------------------------------ */
+/* ------------------------------------------------ */
+/* ------------------------------------------------ */
+.s-header {
+  width: 100%;
+  height: 72px;
+  /* background-color: transparent; */
+  /* background: url(../images/sduqd_cloud1.jpg); */
+  position: absolute;
+  top: 0;
+  z-index: 500;
+}
+
+.s-header.offset {
+  -webkit-transform: translate3d(0, -100%, 0);
+  -ms-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.s-header.scrolling {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.s-header.sticky {
+  position: fixed;
+  top: 0;
+  background-color: #000000 !important;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 600;
+}
+
+.s-header.sticky .header-logo a {
+  margin: 0;
+}
+
+.s-header.sticky .header-nav-wrap {
+  top: 0;
+}
+
+.s-header.sticky.scrolling {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header-nav-wrap {
+  /* font-family: "montserrat-bold", sans-serif; */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: .05rem;
+  position: absolute;
+  top: 9px;
+  right: 50px;
+}
+
+.header-nav {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  height: 72px;
+}
+
+.header-nav li {
+  display: inline-block;
+  padding-left: 0;
+  margin-right: 0.3rem;
+}
+
+.header-nav li a {
+  display: block;
+  line-height: 72px;
+  color: #FFFFFF;
+}
+
+.header-nav li.current a {
+  font-family: "montserrat-extrabold", sans-serif;
+  color: #af2b2b;
+}
+
+@media only screen and (max-width: 800px) {
+  .header-logo {
+      left: 40px;
+  }
+  .header-nav-wrap {
+      display: none;
+      height: auto;
+      width: 100%;
+      right: auto;
+      top: 0;
+      left: 0;
+      background-color: #000000;
+      padding: 120px 40px 21px;
+  }
+  .header-nav-wrap .header-nav {
+      display: block;
+      height: auto;
+      margin: 0 0 4.2rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .header-nav-wrap .header-nav li {
+      display: block;
+      margin: 0;
+      padding: 0;
+      border-bottom: 1px dotted rgba(255, 255, 255, 0.07);
+  }
+  .header-nav-wrap .header-nav li a {
+      padding: 18px 0;
+      line-height: 18px;
+  }
+  .header-menu-toggle {
+      display: block;
+  }
+}
+
+
+/* -------------------------------------------------------------------
+* make sure the menu is visible on larger screens
+* ------------------------------------------------------------------- */
+
+@media only screen and (min-width: 801px) {
+  .header-nav-wrap {
+      display: block !important;
+  }
+}
+
+.header-menu-toggle {
+  display: none;
+  position: absolute;
+  right: 29px;
+  top: 18px;
+  height: 42px;
+  width: 42px;
+  line-height: 42px;
+  font-family: "montserrat-regular", sans-serif;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-menu-toggle:hover, .header-menu-toggle:focus {
+  color: #FFFFFF;
+}
+
+.header-menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin-top: -1px;
+  position: absolute;
+  left: 9px;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  background-color: white;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+
+.header-menu-toggle span::before, 
+.header-menu-toggle span::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  position: absolute;
+  left: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.header-menu-toggle span::before {
+  top: -9px;
+}
+
+.header-menu-toggle span::after {
+  bottom: -9px;
+}
+
+.s-header.sticky .header-menu-toggle {
+  top: 12px;
+}
+
+.header-menu-toggle.is-clicked span {
+  background-color: rgba(255, 255, 255, 0);
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.header-menu-toggle.is-clicked span::before, 
+.header-menu-toggle.is-clicked span::after {
+  background-color: white;
+}
+
+.header-menu-toggle.is-clicked span::before {
+  top: 0;
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.header-menu-toggle.is-clicked span::after {
+  bottom: 0;
+  -webkit-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
